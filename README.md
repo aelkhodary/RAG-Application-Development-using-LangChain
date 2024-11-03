@@ -1,4 +1,15 @@
 #  pip freeze > requirements.txt
+# Env File should have 
+
+```html
+OPENAI_API_KEY=
+GOOGLE_API_KEY=
+HUGGINGFACEHUB_API_TOKEN=
+
+python.envFile = /Users/aelkhodary/Documents/GitHub/Books/DATA/LLM/openai-generative-ai/.venv
+
+python.pythonPath= /Users/aelkhodary/Documents/GitHub/Books/DATA/LLM/openai-generative-ai/.venv/bin/python
+```
 
 # openai-key
 ```javascript
@@ -800,3 +811,4 @@ Tool-Specific Tasks: Use Tool-Using ReAct for scenarios where tool interaction i
 Specialized Conversations: Use Few-Shot ReAct to create domain-specific agents that can follow examples to produce consistent and tailored responses.
 Choosing the right agent largely depends on the complexity of the task, context retention requirements, interaction with tools, and the specificity of the problem to be solved. Each agent type in LangChain is optimized to handle certain scenarios efficiently.
 ```
+
