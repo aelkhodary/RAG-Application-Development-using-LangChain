@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/aelkhodary/Documents/GitHub/Books/DATA/LLM/openai-generative-ai/.venv/bin/python"
+    "python.pythonPath": "/Users/aelkhodary/Documents/GitHub/Books/DATA/LLM/openai-generative-ai/.venv/bin/python",
+    "jupyter.jupyterServer.remoteUri": "https://968b-34-73-55-88.ngrok-free.app"
 }
