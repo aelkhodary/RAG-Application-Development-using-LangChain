@@ -894,3 +894,7 @@ Use Cases: Zero-shot is useful for general knowledge tasks or when the context i
 In short, RAG combines retrieval with generation to enhance context, whereas zero-shot learning relies solely on the model's internal knowledge and prompt-based input without external information retrieval.
 
 `````
+# RAG Solution Architecture
+`````html
+https://aws.amazon.com/blogs/machine-learning/use-amazon-sagemaker-studio-to-build-a-rag-question-answering-solution-with-llama-2-langchain-and-pinecone-for-fast-experimentation/
+`````
