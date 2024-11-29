@@ -1,4 +1,10 @@
 import os 
+from dotenv import load_dotenv
+# Load environment variables
+load_dotenv()
+
+
+
 api_key = os.getenv("Langchain_project_openai")
 print(os.getenv("Langchain_project_openai"))
 
@@ -22,26 +28,48 @@ print(os.getenv("Langchain_project_openai"))
 
 
 # Use the API to send prompts and receive responses
-import openai
+# import openai
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 
-response = openai.chat.completions.create(
-    model="o1-mini",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Explain Python decorators"}
-    ]
+# response = openai.chat.completions.create(
+#     model="o1-mini",
+#     messages=[
+#         {"role": "system", "content": "You are a helpful assistant."},
+#         {"role": "user", "content": "Explain Python decorators"}
+#     ]
+# )
+
+# print(response['choices'][0]['message']['content'])
+
+# # To programmatically list available models:
+
+# import openai
+
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# models = openai.models.list()
+# for model in models:
+#     print(model)
+
+
+
+# anthropic
+
+import anthropic
+
+client = anthropic.Anthropic(
+    # defaults to os.environ.get("ANTHROPIC_API_KEY")
+    api_key=os.getenv("anthropic_api_key"),
+
 )
 
-print(response['choices'][0]['message']['content'])
+message = client.messages.create(
+    model="new-model-name",  # Change the model name here
+    max_tokens=1000,
+    temperature=0,
+    system="what you know about langchain\n",
+    messages=[]
+)
+print(message.content)
 
-# To programmatically list available models:
-
-import openai
-
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
-models = openai.models.list()
-for model in models:
-    print(model)

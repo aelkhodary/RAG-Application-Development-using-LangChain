@@ -17,6 +17,8 @@ https://platform.openai.com/api-keys
 
 https://aistudio.google.com/app/apikey
 
+https://console.anthropic.com/settings/keys
+
 
 curl \
   -H 'Content-Type: application/json' \
@@ -898,51 +900,3 @@ In short, RAG combines retrieval with generation to enhance context, whereas zer
 `````html
 https://aws.amazon.com/blogs/machine-learning/use-amazon-sagemaker-studio-to-build-a-rag-question-answering-solution-with-llama-2-langchain-and-pinecone-for-fast-experimentation/
 `````
-
-
-model_path = 'openlm-research/open_llama_3b'  # Change to your desired model
-llm = LanguageModel(model_path).load_model()
-
-# Define the prompt
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a world-class technical documentation writer."),
-    ("user", "{input}")
-])
-
-# Define the output parser
-output_parser = StrOutputParser()
-
-# Create the chain (prompt | llm | output_parser)
-chain = prompt | llm | output_parser
-
-# Run the chain
-output = chain.invoke({"input": "how can langsmith help with testing?"})
-
-print(output)
-
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-Cell In[20], line 11
-      8 output_parser = StrOutputParser()
-     10 # Create the chain (prompt | llm | output_parser)
----> 11 chain = prompt | llm | output_parser
-     13 # Run the chain
-     14 output = chain.invoke({"input": "how can langsmith help with testing?"})
-
-File ~/miniconda/lib/python3.9/site-packages/langchain_core/runnables/base.py:577, in Runnable.__or__(self, other)
-    567 def __or__(
-    568     self,
-    569     other: Union[
-   (...)
-    574     ],
-    575 ) -> RunnableSerializable[Input, Other]:
-    576     """Compose this Runnable with another object to create a RunnableSequence."""
---> 577     return RunnableSequence(self, coerce_to_runnable(other))
-
-File ~/miniconda/lib/python3.9/site-packages/langchain_core/runnables/base.py:5843, in coerce_to_runnable(thing)
-   5838 else:
-   5839     msg = (
-   5840         f"Expected a Runnable, callable or dict."
-   5841         f"Instead got an unsupported type: {type(thing)}"
-   5842     )
--> 5843     raise TypeError(msg)
